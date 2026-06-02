@@ -562,7 +562,7 @@ body{background:var(--n50);color:var(--n900);font-size:14px;line-height:1.6;}
 }
 @media(max-width:768px){
   #pg-onboard.active{flex-direction:column !important;}
-  .sb-bottom{margin-top:10px;}
+  .sb-bottom{margin-top:10px !important;}
   .ob-left{width:100%;min-height:auto;padding:40px 28px;}
   .ob-right{width:100%;min-height:auto;padding:32px 24px;}
   .sidebar{transform:translateX(calc(-1 * var(--sw)));}
