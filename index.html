@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Burndemic — Pantau Kondisi Akademikmu</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css"/>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+<!-- ===== ONBOARDING ===== -->
+<div id="pg-onboard" class="pg active">
+  <div class="ob-left">
+    <div class="ob-brand">
+      <div class="ob-brand-icon"><i class="ti ti-activity-heartbeat"></i></div>
+      <span class="ob-brand-name">Burn<span>demic</span></span>
+    </div>
+    <h1 class="ob-hero-title">Pantau akademikmu<br>sebelum <span>terlambat</span></h1>
+    <p class="ob-hero-desc">Deteksi dini performa aktivitasmu, dapatkan peringatan otomatis dan ambil tindakan tepat sebelum menyesal.</p>
+  </div>
+  <div class="ob-right">
+    <div class="ob-right-inner">
+      <h2 class="ob-right-title">Mulai pantau sekarang</h2>
+      <p class="ob-right-sub">Tiga fitur utama yang dapat membantu kamu menjaga performa akademik sepanjang semester!</p>
+      <div class="ob-feats">
+        <div class="ob-feat">
+          <div class="ob-feat-icon fi-b"><i class="ti ti-chart-line"></i></div>
+          <div>
+            <div class="ob-feat-title">Pantau nilai &amp; Kehadiran</div>
+            <div class="ob-feat-desc">Semua mata kuliah dalam satu dashboard – nilai, kehadiran, dan status risiko terlihat sekilas.</div>
+          </div>
+        </div>
+        <div class="ob-feat">
+          <div class="ob-feat-icon fi-o"><i class="ti ti-bell"></i></div>
+          <div>
+            <div class="ob-feat-title">Notifikasi peringatan dini</div>
+            <div class="ob-feat-desc">Sistem otomatis memberi tahu saat kehadiran mendekati batas atau nilai di bawah ambang aman.</div>
+          </div>
+        </div>
+        <div class="ob-feat">
+          <div class="ob-feat-icon fi-g"><i class="ti ti-bulb"></i></div>
+          <div>
+            <div class="ob-feat-title">Rekomendasi tindakan</div>
+            <div class="ob-feat-desc">Saran spesifik dari yang paling mendesak hingga hal yang perlu dipertahankan.</div>
+          </div>
+        </div>
+      </div>
+      <button id="startBtn" class="ob-cta-btn">Mulai Sekarang</button>
+      <p class="ob-cta-link">Sudah punya akun? <a href="#" id="toLoginLink">Masuk di sini</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== LOGIN ===== -->
+<div id="pg-login" class="pg">
+  <div class="auth-bg">
+    <div class="auth-card">
+      <div class="ac-logo">
+        <div class="ac-logo-icon"><i class="ti ti-activity-heartbeat"></i></div>
+        <span class="ac-logo-name">Burn<span>demic</span></span>
+      </div>
+      <h2 class="ac-title">Masuk ke akun</h2>
+      <p class="ac-sub">Gunakan email mahasiswa kamu</p>
+      <form id="loginForm" novalidate>
+        <div class="fg">
+          <label class="flbl" for="loginEmail">Email <span class="req">*</span></label>
+          <input class="fc" id="loginEmail" type="text" placeholder="Masukan email di sini"/>
+          <div class="ferr" id="loginEmailErr" style="display:none;"></div>
+        </div>
+        <div class="fg">
+          <label class="flbl" for="loginPass">Password <span class="req">*</span></label>
+          <div class="iw">
+            <input class="fc" id="loginPass" type="password" placeholder="Masukan password di sini"/>
+            <i class="ti ti-eye ii" id="passToggle1"></i>
+          </div>
+          <div class="ferr" id="loginPassErr" style="display:none;">* wajib diisi</div>
+        </div>
+        <button type="submit" class="btn-submit">Masuk</button>
+      </form>
+      <div class="ac-divider"><span>atau</span></div>
+      <p class="ac-footer">Belum punya akun? <a href="#" id="toRegisterLink">Daftar sekarang</a></p>
+      <p class="ac-back"><a href="#" id="backFromLogin"><i class="ti ti-arrow-left"></i> Kembali ke beranda</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== REGISTER ===== -->
+<div id="pg-register" class="pg">
+  <div class="auth-bg">
+    <div class="auth-card auth-card-lg">
+      <div class="ac-logo">
+        <div class="ac-logo-icon"><i class="ti ti-activity-heartbeat"></i></div>
+        <span class="ac-logo-name">Burn<span>demic</span></span>
+      </div>
+      <h2 class="ac-title">Buat akun baru</h2>
+      <p class="ac-sub">Daftarkan Dirimu untuk mulai memantau akademik</p>
+      <form id="registerForm" novalidate>
+        <div class="fg2">
+          <div class="fg">
+            <label class="flbl">Nama Lengkap <span class="req">*</span></label>
+            <input class="fc" id="regNama" type="text" placeholder="Nama Lengkap"/>
+          </div>
+          <div class="fg">
+            <label class="flbl">NIM <span class="req">*</span></label>
+            <input class="fc" id="regNIM" type="text" placeholder="Nomor Induk Mahasiswa"/>
+          </div>
+        </div>
+        <div class="fg">
+          <label class="flbl">Email Universitas <span class="req">*</span></label>
+          <input class="fc" id="regEmail" type="email" placeholder="Masukan email di sini"/>
+        </div>
+        <div class="fg2">
+          <div class="fg">
+            <label class="flbl">Program Studi</label>
+            <input class="fc" id="regProdi" type="text" placeholder="Sistem Informasi"/>
+          </div>
+          <div class="fg">
+            <label class="flbl">Angkatan</label>
+            <input class="fc" id="regAngkatan" type="text" placeholder="2025"/>
+          </div>
+        </div>
+        <div class="fg">
+          <label class="flbl">Password <span class="req">*</span></label>
+          <div class="iw">
+            <input class="fc" id="regPass" type="password" placeholder="Password"/>
+            <i class="ti ti-eye ii" id="passToggle2"></i>
+          </div>
+        </div>
+        <div class="fg">
+          <label class="flbl">Konfirmasi Password <span class="req">*</span></label>
+          <div class="iw">
+            <input class="fc" id="regPass2" type="password" placeholder="Konfirmasi Password"/>
+            <i class="ti ti-eye ii" id="passToggle3"></i>
+          </div>
+          <div class="ferr" id="regPassErr" style="display:none;"></div>
+        </div>
+        <p class="req-note"><span class="req">*</span> wajib diisi</p>
+        <button type="submit" class="btn-submit">Daftar Sekarang &rarr;</button>
+      </form>
+      <p class="ac-footer">Sudah punya akun? <a href="#" id="toLoginFromReg">Masuk di sini</a></p>
+      <p class="ac-back"><a href="#" id="backFromReg"><i class="ti ti-arrow-left"></i> Kembali ke beranda</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== APP ===== -->
+<div id="pg-app" class="pg">
+  <div id="sbOverlay" class="sb-overlay"></div>
+
+  <!-- SIDEBAR -->
+  <aside id="mainSb" class="sidebar">
+    <div class="logo-wrap">
+      <div class="logo-icon"><i class="ti ti-activity-heartbeat"></i></div>
+      <span class="logo-text">Burn<span>demic</span></span>
+    </div>
+    <span class="nav-lbl">Menu Utama</span>
+    <button class="nav-item active" data-sec="dashboard"><i class="ti ti-layout-dashboard"></i> Dashboard</button>
+    <button class="nav-item" data-sec="matkul"><i class="ti ti-book"></i> Mata Kuliah</button>
+    <button class="nav-item" data-sec="kehadiran"><i class="ti ti-calendar-check"></i> Kehadiran</button>
+    <button class="nav-item" data-sec="tugas"><i class="ti ti-checklist"></i> Tugas</button>
+    <button class="nav-item" data-sec="rekomendasi"><i class="ti ti-bulb"></i> Rekomendasi</button>
+    <div class="sb-bottom">
+      <div class="user-card" onclick="goSec('profil')">
+        <div class="uav" id="userAv">MH</div>
+        <div class="user-info">
+          <div class="uname" id="userName">Mahasiswa</div>
+          <div class="unim" id="userNIM">Universitas Brawijaya</div>
+        </div>
+        <i class="ti ti-chevron-right sb-chev"></i>
+      </div>
+      <button class="nav-item logout-btn" id="logoutBtn"><i class="ti ti-logout"></i> Keluar</button>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <div class="main-area">
+    <header class="topbar">
+      <div class="tb-left">
+        <button id="sbToggle" class="mob-tog" aria-label="Menu"><i class="ti ti-menu-2"></i></button>
+        <button class="tb-back" id="backBtn" aria-label="Kembali" style="display:none;"><i class="ti ti-arrow-left"></i></button>
+        <h1 id="tbTitle" class="tb-title">Dashboard Akademik</h1>
+      </div>
+      <div class="tb-right">
+        <span class="tb-sem">Semester Genap 2025/2026</span>
+        <button class="icon-btn" id="notifBell" aria-label="Notifikasi">
+          <i class="ti ti-bell"></i>
+          <span id="notifDot" class="notif-dot" style="display:none;"></span>
+        </button>
+      </div>
+    </header>
+
+    <main class="pg-content">
+
+      <!-- DASHBOARD -->
+      <section id="sec-dashboard" class="pg-sec active">
+        <div class="stat-grid">
+          <div class="stat-card sc-bl">
+            <div class="s-lbl">IPK Saat Ini</div>
+            <div class="s-val" id="dIPK">-</div>
+            <div class="s-sub">Dari data nilai</div>
+          </div>
+          <div class="stat-card">
+            <div class="s-lbl">Mata Kuliah</div>
+            <div class="s-val" id="dMK">0</div>
+            <div class="s-sub">Semester ini</div>
+          </div>
+          <div class="stat-card sc-yw">
+            <div class="s-lbl">Rata-rata Hadir</div>
+            <div class="s-val" id="dHadir">-</div>
+            <div class="s-sub">Semua MK</div>
+          </div>
+          <div class="stat-card sc-rd">
+            <div class="s-lbl">Tugas Pending</div>
+            <div class="s-val" id="dTugas">0</div>
+            <div class="s-sub">Belum Selesai</div>
+          </div>
+        </div>
+        <div class="g2">
+          <div class="card">
+            <div class="card-hdr">
+              <span class="card-title">Status per mata kuliah</span>
+              <button class="btn btn-g btn-sm" data-sec="matkul">Lihat semua</button>
+            </div>
+            <div id="dMKList"></div>
+          </div>
+          <div class="card">
+            <div class="card-hdr"><span class="card-title">Notifikasi</span></div>
+            <div id="dNotif"></div>
+          </div>
+        </div>
+        <div class="g2">
+          <div class="card">
+            <div class="card-hdr"><span class="card-title">Grafik nilai per mata kuliah</span></div>
+            <div id="dChart" class="chart-wrap"></div>
+            <div class="chart-legend">
+              <span class="legend-item"><span class="legend-dot" style="background:var(--bl);"></span>≥70</span>
+              <span class="legend-item"><span class="legend-dot" style="background:var(--yw);"></span>60–69</span>
+              <span class="legend-item"><span class="legend-dot" style="background:var(--rd);"></span>&lt;60</span>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-hdr">
+              <span class="card-title">To-do list</span>
+              <button class="btn btn-g btn-sm" data-sec="tugas">Lihat tugas</button>
+            </div>
+            <div id="dTodo"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MATA KULIAH -->
+      <section id="sec-matkul" class="pg-sec">
+        <div class="stat-grid" style="margin-bottom:20px;">
+          <div class="stat-card">
+            <div class="s-lbl">Total MK</div>
+            <div class="s-val" id="mkTotal">0</div>
+          </div>
+          <div class="stat-card sc-gr">
+            <div class="s-lbl">Status Aman</div>
+            <div class="s-val" id="mkAman">0</div>
+          </div>
+          <div class="stat-card sc-yw">
+            <div class="s-lbl">Perlu Perhatian</div>
+            <div class="s-val" id="mkPerhatian">0</div>
+          </div>
+          <div class="stat-card sc-rd">
+            <div class="s-lbl">Risiko Tinggi</div>
+            <div class="s-val" id="mkRisiko">0</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-hdr"><span class="card-title">Daftar Mata Kuliah</span></div>
+          <div class="tbl-wrap">
+            <table class="dtbl">
+              <thead>
+                <tr>
+                  <th style="width:35%;">Nama MK</th>
+                  <th>SKS</th>
+                  <th>Nilai</th>
+                  <th>Grade</th>
+                  <th>Kehadiran</th>
+                  <th>Status</th>
+                  <th>Aksi</th>
+                </tr>
+              </thead>
+              <tbody id="mkBody"></tbody>
+            </table>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-hdr"><span class="card-title">Tambah Mata Kuliah</span></div>
+          <div class="fg2">
+            <div class="fg">
+              <label class="flbl">Nama Mata Kuliah <span class="req">*</span></label>
+              <input class="fc" id="mkNama" type="text" placeholder="Contoh: Basis Data"/>
+            </div>
+            <div class="fg">
+              <label class="flbl">SKS</label>
+              <input class="fc" id="mkSKS" type="number" min="1" max="6" value="3" placeholder="3"/>
+            </div>
+            <div class="fg">
+              <label class="flbl">Nilai Saat Ini (0–100) <span class="req">*</span></label>
+              <input class="fc" id="mkNilai" type="number" min="0" max="100" placeholder="Masukan nilai"/>
+            </div>
+            <div class="fg">
+              <label class="flbl">Kehadiran (0–100)% <span class="req">*</span></label>
+              <input class="fc" id="mkHadir" type="number" min="0" max="100" placeholder="Masukan % kehadiran"/>
+            </div>
+          </div>
+          <button id="saveMK" class="btn btn-p btn-sm"><i class="ti ti-plus"></i> Tambah Mata Kuliah</button>
+        </div>
+      </section>
+
+      <!-- KEHADIRAN -->
+      <section id="sec-kehadiran" class="pg-sec">
+        <div class="card">
+          <div class="card-hdr"><span class="card-title">Progress kehadiran per mata kuliah</span></div>
+          <div id="hadirList"></div>
+        </div>
+        <div class="card">
+          <div class="card-hdr"><span class="card-title">Catatan kehadiran</span></div>
+          <div class="fg3">
+            <div class="fg">
+              <label class="flbl">Mata Kuliah <span class="req">*</span></label>
+              <select class="fc" id="hadirMK"><option value="">Pilih Mata Kuliah</option></select>
+            </div>
+            <div class="fg">
+              <label class="flbl">Tanggal Kuliah <span class="req">*</span></label>
+              <input class="fc" id="hadirTgl" type="date" placeholder="dd/mm/tttt"/>
+            </div>
+            <div class="fg">
+              <label class="flbl">Status <span class="req">*</span></label>
+              <select class="fc" id="hadirStatus">
+                <option>Hadir</option>
+                <option>Izin</option>
+                <option>Sakit</option>
+                <option>Alfa</option>
+              </select>
+            </div>
+          </div>
+          <button id="saveHadir" class="btn btn-p btn-sm"><i class="ti ti-device-floppy"></i> Simpan</button>
+        </div>
+      </section>
+
+      <!-- TUGAS -->
+      <section id="sec-tugas" class="pg-sec">
+        <div class="stat-grid" style="margin-bottom:20px;">
+          <div class="stat-card">
+            <div class="s-lbl">Total Tugas</div>
+            <div class="s-val" id="tTotal">0</div>
+          </div>
+          <div class="stat-card sc-gr">
+            <div class="s-lbl">Sudah Selesai</div>
+            <div class="s-val" id="tDone">0</div>
+          </div>
+          <div class="stat-card sc-rd">
+            <div class="s-lbl">Belum Selesai</div>
+            <div class="s-val" id="tPending">0</div>
+          </div>
+          <div class="stat-card sc-yw">
+            <div class="s-lbl">Mendekati DL</div>
+            <div class="s-val" id="tMendekati">0</div>
+          </div>
+        </div>
+        <div class="g2">
+          <div class="card card-border-rd">
+            <div class="card-hdr"><span class="card-title">Belum selesai</span></div>
+            <div class="tbl-wrap">
+              <table class="dtbl">
+                <thead><tr><th>Tugas</th><th>MK</th><th>Deadline</th><th>Status</th><th>Aksi</th></tr></thead>
+                <tbody id="tPendingList"></tbody>
+              </table>
+            </div>
+          </div>
+          <div class="card card-border-gr">
+            <div class="card-hdr"><span class="card-title">Sudah selesai</span></div>
+            <div class="tbl-wrap">
+              <table class="dtbl">
+                <thead><tr><th>Tugas</th><th>MK</th><th>Status</th></tr></thead>
+                <tbody id="tDoneList"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-hdr"><span class="card-title">Tambah tugas baru</span></div>
+          <div class="fg2">
+            <div class="fg">
+              <label class="flbl">Nama Tugas <span class="req">*</span></label>
+              <input class="fc" id="tNama" type="text" placeholder="Nama tugas"/>
+            </div>
+            <div class="fg">
+              <label class="flbl">Mata Kuliah <span class="req">*</span></label>
+              <select class="fc" id="tMKSel"><option value="">Pilih mata kuliah</option></select>
+            </div>
+            <div class="fg">
+              <label class="flbl">Deadline <span class="req">*</span></label>
+              <input class="fc" id="tDL" type="date" placeholder="dd/mm/tttt"/>
+            </div>
+            <div class="fg">
+              <label class="flbl">Catatan</label>
+              <input class="fc" id="tNote" type="text" placeholder="Opsional"/>
+            </div>
+          </div>
+          <button id="saveTugas" class="btn btn-p btn-sm"><i class="ti ti-plus"></i> Tambah Tugas</button>
+        </div>
+      </section>
+
+      <!-- REKOMENDASI -->
+      <section id="sec-rekomendasi" class="pg-sec">
+        <p class="rek-sub">Rekomendasi berdasarkan kondisi akademikmu, dari yang paling mendesak.</p>
+        <div id="rekList"></div>
+      </section>
+
+      <!-- PROFIL -->
+      <section id="sec-profil" class="pg-sec">
+        <div class="profile-hero">
+          <div class="profile-av-big" id="profileAvBig">MH</div>
+          <div class="profile-info">
+            <h2 id="profileName">Mahasiswa</h2>
+            <p id="profileNIM">NIM — Universitas Brawijaya</p>
+            <div class="profile-badge"><i class="ti ti-school"></i> <span id="profileProdi">Sistem Informasi</span></div>
+          </div>
+        </div>
+        <div class="g2">
+          <div>
+            <div class="profile-section">Informasi Akun</div>
+            <div class="profile-row" onclick="editProfileField('nama')">
+              <div class="profile-row-left">
+                <div class="profile-row-icon pri-bl"><i class="ti ti-user"></i></div>
+                <div><div class="profile-row-title">Nama Lengkap</div><div class="profile-row-sub" id="prName">—</div></div>
+              </div>
+            </div>
+            <div class="profile-row" onclick="editProfileField('nim')">
+              <div class="profile-row-left">
+                <div class="profile-row-icon pri-bl"><i class="ti ti-id-badge"></i></div>
+                <div><div class="profile-row-title">NIM</div><div class="profile-row-sub" id="prNIM">—</div></div>
+              </div>
+            </div>
+            <div class="profile-row" onclick="editProfileField('email')">
+              <div class="profile-row-left">
+                <div class="profile-row-icon pri-or"><i class="ti ti-mail"></i></div>
+                <div><div class="profile-row-title">Email</div><div class="profile-row-sub" id="prEmail">—</div></div>
+              </div>
+            </div>
+            <div class="profile-row" onclick="editProfileField('angkatan')">
+              <div class="profile-row-left">
+                <div class="profile-row-icon pri-gr"><i class="ti ti-calendar"></i></div>
+                <div><div class="profile-row-title">Angkatan</div><div class="profile-row-sub" id="prAngkatan">—</div></div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="profile-section">Ringkasan Akademik</div>
+            <div class="stat-grid" style="grid-template-columns:1fr 1fr;gap:10px;margin-bottom:0;">
+              <div class="stat-card sc-bl"><div class="s-lbl">IPK</div><div class="s-val" id="prIPK">-</div></div>
+              <div class="stat-card"><div class="s-lbl">Total MK</div><div class="s-val" id="prMK">0</div></div>
+              <div class="stat-card sc-gr"><div class="s-lbl">MK Aman</div><div class="s-val" id="prAman">0</div></div>
+              <div class="stat-card sc-rd"><div class="s-lbl">MK Risiko</div><div class="s-val" id="prRisiko">0</div></div>
+            </div>
+            <div class="profile-section" style="margin-top:18px;">Pengaturan</div>
+            <div class="profile-row" onclick="changePassword()">
+              <div class="profile-row-left">
+                <div class="profile-row-icon pri-bl"><i class="ti ti-lock"></i></div>
+                <div><div class="profile-row-title">Ubah Password</div><div class="profile-row-sub">Perbarui keamanan akun</div></div>
+              </div>
+              <div class="profile-row-right"><i class="ti ti-chevron-right" style="color:var(--n400);"></i></div>
+            </div>
+            <div class="profile-row" onclick="showLogoutModal()">
+              <div class="profile-row-left">
+                <div class="profile-row-icon pri-rd"><i class="ti ti-logout"></i></div>
+                <div><div class="profile-row-title" style="color:var(--rd-d);">Keluar</div><div class="profile-row-sub">Logout dari akun</div></div>
+              </div>
+              <div class="profile-row-right"><i class="ti ti-chevron-right" style="color:var(--n400);"></i></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<!-- LOGOUT MODAL -->
+<div class="modal-bg" id="logoutModal">
+  <div class="modal-box">
+    <div class="modal-icon"><i class="ti ti-logout"></i></div>
+    <div class="modal-title">Yakin ingin keluar?</div>
+    <div class="modal-desc">Semua data yang belum disimpan akan hilang. Kamu perlu login kembali untuk mengakses Burndemic.</div>
+    <div class="modal-btns">
+      <button class="modal-cancel" onclick="hideLogoutModal()">Batal</button>
+      <button class="modal-confirm" onclick="doLogout()">Ya, Keluar</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast-el"></div>
+
+<!-- NOTIFIKASI PANEL -->
+<div id="notifPanel" class="notif-overlay" style="display:none;" onclick="closeNotifPanel()">
+  <div class="notif-drawer" onclick="event.stopPropagation()">
+    <div class="notif-drawer-hdr">
+      <div>
+        <div class="notif-drawer-title">Notifikasi</div>
+        <div class="notif-drawer-sub" id="notifCount">0 notifikasi baru</div>
+      </div>
+      <button class="icon-btn-sm" onclick="closeNotifPanel()"><i class="ti ti-x"></i></button>
+    </div>
+    <div class="notif-drawer-body" id="notifPanelList"></div>
+    <div class="notif-drawer-footer">
+      <button onclick="closeNotifPanel();goSec('rekomendasi');" class="notif-rek-btn">Lihat Rekomendasi Tindakan</button>
+    </div>
+  </div>
+</div>
+
+<!-- TUTORIAL PANEL -->
+<div id="tutorialPanel" class="modal-bg" style="display:none;">
+  <div class="tutorial-box">
+    <div class="tutorial-hdr">
+      <div class="tutorial-hdr-left">
+        <div class="tutorial-icon"><i class="ti ti-book-2"></i></div>
+        <div>
+          <div class="tutorial-title">Panduan Penggunaan</div>
+          <div class="tutorial-sub">Cara menggunakan Burndemic</div>
+        </div>
+      </div>
+      <button class="icon-btn-sm" onclick="closeTutorial()"><i class="ti ti-x"></i></button>
+    </div>
+    <div class="tutorial-body">
+      <div class="tut-step">
+        <div class="tut-num">1</div>
+        <div><div class="tut-step-title">Daftar atau masuk ke akun</div><div class="tut-step-desc">Buat akun baru dengan mengisi nama lengkap, NIM, email, dan password. Jika sudah punya akun, langsung masuk menggunakan email atau NIM kamu.</div></div>
+      </div>
+      <div class="tut-step">
+        <div class="tut-num">2</div>
+        <div>
+          <div class="tut-step-title">Tambahkan mata kuliah</div>
+          <div class="tut-step-desc">Buka menu <strong>Mata Kuliah</strong> → isi nama MK, nilai saat ini (0–100), dan persentase kehadiran (0–100). Klik <strong>Tambah Mata Kuliah</strong>. Sistem akan otomatis menghitung status risiko.</div>
+          <div class="tut-badges">
+            <span class="badge bg"><span class="dot dg"></span>Aman (nilai≥70, hadir ≥80%)</span>
+            <span class="badge by"><span class="dot dy"></span>Perhatian (nilai 60–69 atau hadir 75–79%)</span>
+            <span class="badge br"><span class="dot dr"></span>Risiko (&lt;60 atau hadir &lt;75%)</span>
+          </div>
+        </div>
+      </div>
+      <div class="tut-step">
+        <div class="tut-num">3</div>
+        <div><div class="tut-step-title">Pantau kehadiran</div><div class="tut-step-desc">Buka menu <strong>Kehadiran</strong> → pilih mata kuliah, tanggal, dan status (Hadir/Izin/Sakit/Alfa). Sistem akan menghitung ulang persentase kehadiranmu secara otomatis.</div></div>
+      </div>
+      <div class="tut-step">
+        <div class="tut-num">4</div>
+        <div><div class="tut-step-title">Kelola tugas &amp; deadline</div><div class="tut-step-desc">Buka menu <strong>Tugas</strong> → tambahkan nama tugas, mata kuliah, dan deadline. Sistem akan menandai tugas yang mendekati deadline dengan label <strong style="color:var(--rd-d);">Mendesak</strong> atau <strong style="color:var(--or-d);">Segera</strong>. Centang tugas yang sudah selesai.</div></div>
+      </div>
+      <div class="tut-step">
+        <div class="tut-num">5</div>
+        <div><div class="tut-step-title">Cek notifikasi &amp; rekomendasi</div><div class="tut-step-desc">Klik ikon 🔔 di pojok kanan atas untuk melihat peringatan terbaru. Buka menu <strong>Rekomendasi</strong> untuk mendapatkan saran tindakan yang disesuaikan dengan kondisi akademikmu dari yang paling mendesak hingga hal yang perlu diperhatikan.</div></div>
+      </div>
+      <div class="tut-step" style="margin-bottom:8px;">
+        <div class="tut-num tut-num-or">6</div>
+        <div><div class="tut-step-title">Lihat profil &amp; kelola akun</div><div class="tut-step-desc">Klik avatar di sidebar untuk melihat halaman profil lengkap beserta ringkasan akademikmu. Dari sini kamu juga bisa mengubah password atau logout.</div></div>
+      </div>
+      <div class="tut-tips">
+        <div class="tut-tips-title">💡 Tips</div>
+        <div class="tut-tips-body">Update data secara rutin setiap minggu agar rekomendasi yang diberikan selalu akurat. Semakin sering kamu memperbarui data, semakin tepat sistem dalam mendeteksi risiko penurunan akademik.</div>
+      </div>
+    </div>
+    <div class="tutorial-footer">
+      <button onclick="closeTutorial()" class="btn-submit">Mengerti, Mulai Pantau!</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
